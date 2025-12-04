@@ -1,0 +1,181 @@
+﻿@model EntityAspMvcFirst.Models.Student
+
+@{
+    ViewData["Title"] = "Edit Student";
+}
+
+<style>
+    body {
+        background: #f9fafb;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    .page-wrapper {
+        padding: 40px;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+    }
+
+    .form-card {
+        background: #ffffff;
+        padding: 35px 40px;
+        border-radius: 16px;
+        width: 100%;
+        max-width: 800px;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+        border: 1px solid #e5e7eb;
+    }
+
+    .form-title {
+        font-size: 26px;
+        font-weight: 700;
+        color: #111827;
+        margin-bottom: 6px;
+        text-align: center;
+    }
+
+    .form-subtitle {
+        text-align: center;
+        font-size: 14px;
+        color: #6b7280;
+        margin-bottom: 30px;
+    }
+
+    label {
+        font-weight: 600;
+        font-size: 14px;
+        color: #374151;
+        margin-bottom: 6px;
+    }
+
+    .form-control {
+        height: 44px;
+        border-radius: 10px;
+    }
+
+    .radio-group {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+        margin-top: 8px;
+    }
+
+        .radio-group input {
+            margin-right: 6px;
+        }
+
+    .btn-save {
+        background: #4f46e5;
+        color: white;
+        font-weight: 600;
+        padding: 12px;
+        border-radius: 10px;
+        width: 100%;
+    }
+
+        .btn-save:hover {
+            background: #4338ca;
+            color: white;
+        }
+
+    .btn-back {
+        margin-top: 12px;
+        width: 100%;
+        font-weight: 600;
+        border-radius: 10px;
+    }
+</style>
+<div class="page-wrapper">
+    <div class="form-card">
+
+        <h2 class="form-title">Edit Student</h2>
+        <p class="form-subtitle">
+            Update student details
+        </p>
+
+        <form asp-action="Edit">
+
+            <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+                <input type="hidden" asp-for="StudentId" />
+                <div class="row g-3">
+                <div class="col-md-6">
+                    <label asp-for="FullName"></label>
+                    <input asp-for="FullName" class="form-control" />
+                    <span asp-validation-for="FullName" class="text-danger"></span>
+                </div>
+
+                <div class="col-md-6">
+                    <label asp-for="Email"></label>
+                    <input asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+
+                <div class="col-md-6">
+                    <label asp-for="Age"></label>
+                    <input asp-for="Age" class="form-control" />
+                    <span asp-validation-for="Age" class="text-danger"></span>
+                </div>
+
+                <div class="col-md-6">
+                    <label asp-for="DateOfAdmission"></label>
+                    <input asp-for="DateOfAdmission" type="date" class="form-control" />
+                    <span asp-validation-for="DateOfAdmission" class="text-danger"></span>
+                </div>
+
+                <!-- ✅ GENDER RADIO BUTTONS -->
+                <div class="col-md-6">
+                    <label>Gender</label>
+                    <div class="radio-group">
+                        <label>
+                            <input type="radio" asp-for="Gender" value="Male" /> Male
+                        </label>
+                        <label>
+                            <input type="radio" asp-for="Gender" value="Female" /> Female
+                        </label>
+                        <label>
+                            <input type="radio" asp-for="Gender" value="Others" /> Others
+                        </label>
+                    </div>
+                    <span asp-validation-for="Gender" class="text-danger"></span>
+                </div>
+
+                <div class="col-md-6">
+                    <label>Department</label>
+                    <div class="form-group">
+
+                        <input asp-for="Department" list="departments" class="form-control" placeholder="Select or type department" />
+                        <datalist id="departments">
+                            <option value="CSE" />
+                            <option value="ECE" />
+                            <option value="MECH" />
+                            <option value="CIVIL" />
+                            <option value="EEE" />
+                        </datalist>
+                    </div>
+
+                    <span asp-validation-for="Department" class="text-danger"></span>
+                </div>
+
+            <!-- ✅ ACTION BUTTONS (STACKED) -->
+            <div class="mt-4 d-grid gap-2">
+                <button type="submit" class="btn btn-save">
+                    Update Student
+                </button>
+
+                <a asp-action="List" class="btn btn-outline-secondary btn-back">
+                    Back to List
+                </a>
+            </div>
+
+        </form>
+
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

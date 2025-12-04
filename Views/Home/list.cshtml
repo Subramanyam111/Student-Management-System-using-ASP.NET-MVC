@@ -1,0 +1,157 @@
+﻿@model IEnumerable<EntityAspMvcFirst.Models.Student>
+
+@{
+    ViewData["Title"] = "Student List";
+}
+
+<style>
+    body {
+        background: #f9fafb;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    .page-wrapper {
+        padding: 40px;
+        min-height: 100vh;
+    }
+
+    .card-box {
+        background: #ffffff;
+        border-radius: 16px;
+        padding: 30px;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+        border: 1px solid #e5e7eb;
+    }
+
+    .top-bar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 25px;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .page-title {
+        font-weight: 700;
+        color: #111827;
+        margin: 0;
+    }
+
+    .search-box {
+        display: flex;
+        gap: 10px;
+    }
+
+        .search-box input {
+            width: 200px;
+        }
+
+    .table thead {
+        background: #eef2ff;
+        color: #111827;
+    }
+
+    .action-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .footer-empty {
+        text-align: center;
+        color: #6b7280;
+        margin-top: 30px;
+    }
+
+    .popup{
+        position:absolute;     
+        justify-self:center;
+    }
+</style>
+
+<div class="page-wrapper">
+
+    @* Alerts *@
+    @if (TempData["message"] != null)
+    {
+        <div class="alert alert-danger alert-dismissible fade show w-25 m-3 text-center popup">
+            @TempData["message"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+    }
+
+    @if (TempData["insert"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show w-25 m-3 text-center popup">
+            @TempData["insert"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+    }
+
+    <div class="card-box">
+
+        <div class="top-bar">
+            <h3 class="page-title">Student Management</h3>
+
+            <form method="get" class="search-box">
+                <input type="number" name="id" class="form-control" placeholder="Student ID" />
+                <button type="submit" class="btn btn-primary">Search</button>
+                <a asp-action="List" class="btn btn-outline-secondary">Reset</a>
+            </form>
+
+            <div class="d-flex gap-2">
+                <a asp-controller="Home" asp-action="Index" class="btn btn-outline-primary">Home</a>
+                <a asp-action="Create" class="btn btn-success">Create Student</a>
+            </div>
+        </div>
+
+        @if (Model != null && Model.Any())
+        {
+            <div class="table-responsive">
+                <table class="table table-hover align-middle">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Age</th>
+                            <th>Gender</th>
+                            <th>Department</th>
+                            <th>Admission</th>
+                            <th class="text-center">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.StudentId</td>
+                                <td>@item.FullName</td>
+                                <td>@item.Email</td>
+                                <td>@item.Age</td>
+                                <td>@item.Gender</td>
+                                <td>@item.Department</td>
+                                <td>@item.DateOfAdmission.ToShortDateString()</td>
+
+                                <td class="action-buttons">
+                                    <a asp-action="Edit" asp-route-id="@item.StudentId" class="btn btn-warning btn-sm">Edit</a>|
+                                    <a asp-action="Details" asp-route-id="@item.StudentId" class="btn btn-info btn-sm text-white">View</a>|
+                                    <a asp-action="Delete" asp-route-id="@item.StudentId" class="btn btn-danger btn-sm text-white">Delete</a>
+                               
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        }
+        else
+        {
+            <div class="footer-empty">
+                <h5>No records available.</h5>
+            </div>
+        }
+
+    </div>
+</div>

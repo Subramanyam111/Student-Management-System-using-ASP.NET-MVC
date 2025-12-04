@@ -1,0 +1,150 @@
+﻿@model EntityAspMvcFirst.Models.Student
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<style>
+    body {
+        background: #f9fafb7a;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    .page-wrapper {
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 40px;
+    }
+
+    .delete-card {
+        background: #ffffff;
+        padding: 35px 40px;
+        border-radius: 16px;
+        width: 500px;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+        border: 1px solid #e5e7eb;
+    }
+
+    .delete-title {
+        font-size: 26px;
+        font-weight: 700;
+        color: #111827;
+        text-align: center;
+        margin-bottom: 8px;
+    }
+
+    .delete-subtitle {
+        text-align: center;
+        font-size: 14px;
+        color: #b91c1c;
+        font-weight: 600;
+        margin-bottom: 25px;
+    }
+
+    .details-box {
+        margin-bottom: 25px;
+    }
+
+    .details-row {
+        display: flex;
+        padding: 10px 0;
+        border-bottom: 1px solid #e5e7eb;
+        font-size: 14px;
+    }
+
+        .details-row:last-child {
+            border-bottom: none;
+        }
+
+    .details-label {
+        width: 35%;
+        font-weight: 600;
+        color: #374151;
+    }
+
+    .details-value {
+        width: 65%;
+        color: #111827;
+        font-weight: 500;
+    }
+
+    .btn-delete {
+        background: #dc2626;
+        color: white;
+        font-weight: 600;
+        padding: 12px;
+        border-radius: 10px;
+        width: 100%;
+    }
+
+        .btn-delete:hover {
+            background: #b91c1c;
+            color: white;
+        }
+
+    .btn-cancel {
+        margin-top: 12px;
+        width: 100%;
+        font-weight: 600;
+        border-radius: 10px;
+    }
+</style>
+
+<div class="page-wrapper">
+    <div class="delete-card">
+
+        <h1 class="delete-title">Delete Student</h1>
+        <h3 class="delete-subtitle">Are you sure you want to delete this record?</h3>
+
+        <!-- ✅ SAFE DATA DISPLAY -->
+        <div class="details-box">
+
+            <div class="details-row">
+                <div class="details-label">@Html.DisplayNameFor(model => model.FullName)</div>
+                <div class="details-value">@Html.DisplayFor(model => model.FullName)</div>
+            </div>
+
+            <div class="details-row">
+                <div class="details-label">@Html.DisplayNameFor(model => model.Email)</div>
+                <div class="details-value">@Html.DisplayFor(model => model.Email)</div>
+            </div>
+
+            <div class="details-row">
+                <div class="details-label">@Html.DisplayNameFor(model => model.Age)</div>
+                <div class="details-value">@Html.DisplayFor(model => model.Age)</div>
+            </div>
+
+            <div class="details-row">
+                <div class="details-label">@Html.DisplayNameFor(model => model.Gender)</div>
+                <div class="details-value">@Html.DisplayFor(model => model.Gender)</div>
+            </div>
+
+            <div class="details-row">
+                <div class="details-label">@Html.DisplayNameFor(model => model.Department)</div>
+                <div class="details-value">@Html.DisplayFor(model => model.Department)</div>
+            </div>
+
+            <div class="details-row">
+                <div class="details-label">@Html.DisplayNameFor(model => model.DateOfAdmission)</div>
+                <div class="details-value">@Html.DisplayFor(model => model.DateOfAdmission)</div>
+            </div>
+
+        </div>
+
+        <!-- ✅ SAFE FORM POST -->
+        <form asp-action="Delete">
+            <input type="hidden" asp-for="StudentId" />
+
+            <button type="submit" class="btn btn-danger btn-delete">
+                Confirm Delete
+            </button>
+
+            <a asp-action="List" class="btn btn-outline-secondary btn-cancel">
+                Cancel & Go Back
+            </a>
+        </form>
+
+    </div>
+</div>
