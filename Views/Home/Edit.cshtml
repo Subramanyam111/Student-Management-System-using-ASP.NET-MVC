@@ -98,8 +98,13 @@
         <form asp-action="Edit">
 
             <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
-                <input type="hidden" asp-for="StudentId" />
-                <div class="row g-3">
+
+        
+            <input type="hidden" asp-for="StudentId" />
+
+            <!-- ✅ TWO COLUMN GRID -->
+            <div class="row g-3">
+
                 <div class="col-md-6">
                     <label asp-for="FullName"></label>
                     <input asp-for="FullName" class="form-control" />

@@ -391,3 +391,4 @@ D:\vsprojects\Asp.NetCodesNew\Asp.Net_Core_MVC_day1\EntityAspMvcFirst\EntityAspM
 D:\vsprojects\Asp.NetCodesNew\Asp.Net_Core_MVC_day1\EntityAspMvcFirst\EntityAspMvcFirst\bin\Debug\net10.0\tr\Microsoft.CodeAnalysis.Scripting.resources.dll
 D:\vsprojects\Asp.NetCodesNew\Asp.Net_Core_MVC_day1\EntityAspMvcFirst\EntityAspMvcFirst\bin\Debug\net10.0\zh-Hans\Microsoft.CodeAnalysis.Scripting.resources.dll
 D:\vsprojects\Asp.NetCodesNew\Asp.Net_Core_MVC_day1\EntityAspMvcFirst\EntityAspMvcFirst\bin\Debug\net10.0\zh-Hant\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\vsprojects\Asp.NetCodesNew\Asp.Net_Core_MVC_day1\EntityAspMvcFirst\EntityAspMvcFirst\obj\Debug\net10.0\EntityAspMvcFirst.sourcelink.json

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("EntityAspMvcFirst")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c9b9349610946ae10a233f20c8c336490be79189")]
 [assembly: System.Reflection.AssemblyProductAttribute("EntityAspMvcFirst")]
 [assembly: System.Reflection.AssemblyTitleAttribute("EntityAspMvcFirst")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

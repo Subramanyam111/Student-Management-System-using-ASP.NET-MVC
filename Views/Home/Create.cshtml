@@ -86,31 +86,26 @@
         font-weight: 600;
         border-radius: 10px;
     }
-
-    .note{
-        justify-self:center;
-        position:absolute;
-    }
 </style>
-@if (TempData["createerror"] != null)
-{
-    <div class="alert alert-danger alert-dismissible fade show m-3 w-25 text-center note">
-        @TempData["createerror"]
-        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-    </div>
-}
+
 <div class="page-wrapper">
     <div class="form-card">
 
         <h2 class="form-title">Create Student</h2>
-        <p class="form-subtitle">
-            Add a new student record
-        </p>
+        <p class="form-subtitle">Enter new student details</p>
 
         <form asp-action="Create">
 
+            @if (TempData["createerror"] != null)
+            {
+                <div class="alert alert-danger">
+                    @TempData["createerror"]
+                </div>
+            }
+
             <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
 
+            <!-- ✅ TWO COLUMN GRID -->
             <div class="row g-3">
 
                 <div class="col-md-6">
@@ -154,21 +149,23 @@
                     <span asp-validation-for="Gender" class="text-danger"></span>
                 </div>
 
-                
                 <div class="col-md-6">
                     <label>Department</label>
-                    <div class="form-group">
-                        <input asp-for="Department" list="departments" class="form-control" placeholder="Select or type department" />
-                        <datalist id="departments">
-                            <option value="CSE"/>
-                            <option value="ECE"/>
-                            <option value="MECH"/>
-                            <option value="CIVIL"/>
-                            <option value="EEE" />
-                        </datalist>
-                    </div>
-
+                    <input asp-for="Department" list="departments" class="form-control" placeholder="Select or type department" />
+                    <datalist id="departments">
+                        <option value="CSE" />
+                        <option value="ECE" />
+                        <option value="MECH" />
+                        <option value="CIVIL" />
+                        <option value="EEE" />
+                    </datalist>
                     <span asp-validation-for="Department" class="text-danger"></span>
+                </div>
+
+                <div class="col-md-6">
+                    <label asp-for="DateOfAdmission"></label>
+                    <input asp-for="DateOfAdmission" type="date" class="form-control" />
+                    <span asp-validation-for="DateOfAdmission" class="text-danger"></span>
                 </div>
 
             </div>
@@ -176,14 +173,13 @@
             <!-- ✅ ACTION BUTTONS -->
             <div class="mt-4 d-grid gap-2">
                 <button type="submit" class="btn btn-save">
-                    Save Student
+                    Create Student
                 </button>
 
-                <a asp-action="List" class="btn btn-outline-secondary btn-back">
+                <a asp-action="list" class="btn btn-outline-secondary btn-back">
                     Back to List
                 </a>
             </div>
-
 
         </form>
 

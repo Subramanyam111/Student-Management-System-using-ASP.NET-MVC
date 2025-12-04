@@ -57,9 +57,10 @@ namespace EntityAspMvcFirst.Controllers
                     TempData["insert"] = "Student created successfully";
                     return RedirectToAction("list");
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
-                    TempData["createerror"] = "provide a valid data.....";
+                    var msg = ex.Message;
+                    TempData["createerror"] = "Error: check your details once again and privide unique id and mail ";
                     return View();
                 }
             }

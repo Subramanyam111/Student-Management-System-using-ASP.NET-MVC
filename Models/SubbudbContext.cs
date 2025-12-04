@@ -30,7 +30,8 @@ public partial class SubbudbContext : DbContext
 
             entity.HasIndex(e => e.Email, "UQ__Student__A9D10534F978CED7").IsUnique();
 
-            entity.Property(e => e.StudentId).ValueGeneratedNever();
+            // Make StudentId generated on add (identity) so DB issues the value.
+            entity.Property(e => e.StudentId).ValueGeneratedOnAdd();
             entity.Property(e => e.DateOfAdmission).HasDefaultValueSql("(getdate())");
             entity.Property(e => e.Department).HasMaxLength(50);
             entity.Property(e => e.Email).HasMaxLength(100);
