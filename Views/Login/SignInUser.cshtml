@@ -1,0 +1,148 @@
+﻿@{
+    ViewData["Title"] = "Signup";
+}
+@{
+    Layout = "_LayoutLogin";
+}
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+    }
+
+    body {
+        font-family: 'Poppins', sans-serif;
+        background: #f9fafb;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .welcome-card {
+        background: #ffffff;
+        padding: 20px 50px;
+        border-radius: 16px;
+        max-width: 500px;
+        width: 100%;
+        text-align: center;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+        border: 1px solid #e5e7eb;
+    }
+
+    .welcome-title {
+        font-size: 32px;
+        font-weight: 700;
+        color: #111827;
+        margin-bottom: 25px;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+        text-align: left;
+    }
+
+        .form-group label {
+            font-size: 14px;
+            color: #374151;
+            font-weight: 600;
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid #d1d5db;
+            font-size: 14px;
+            outline: none;
+        }
+
+            .form-group input:focus {
+                border-color: #4f46e5;
+            }
+
+    .start-btn {
+        width: 100%;
+        border: none;
+        padding: 14px;
+        border-radius: 10px;
+        background: #4f46e5;
+        color: #ffffff;
+        font-weight: 600;
+        font-size: 16px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        margin-top: 10px;
+        box-shadow: 0 8px 20px rgba(79, 70, 229, 0.3);
+    }
+
+        .start-btn:hover {
+            background: #4338ca;
+            transform: translateY(-2px);
+        }
+
+    .error-text {
+        color: red;
+        margin-top: 12px;
+        font-size: 14px;
+        text-align: center;
+    }
+
+    .footer-text {
+        margin-top: 25px;
+        font-size: 13px;
+        color: #9ca3af;
+    }
+</style>
+
+<div class="welcome-card">
+
+    <h1 class="welcome-title">Create Account</h1>
+
+    <form asp-action="SignInUser"  method="post">
+
+        <div class="form-group">
+            <label>Username</label>
+            <input type="text" name="username" placeholder="Create username" required />
+        </div>
+
+        <div class="form-group">
+            <label>Password</label>
+            <input type="password" id="password" name="password" placeholder="Create password" required />
+        </div>
+
+        <div class="form-group">
+            <label>Confirm Password</label>
+            <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm password" required />
+        </div>
+
+        <button type="submit" class="start-btn">Sign Up</button>
+
+        <p id="errorText" class="error-text">@ViewBag.Error</p>
+
+        <div class="footer-text">
+            Already have an account?
+            <a asp-action="LoginUser">Login here</a>
+        </div>
+
+    </form>
+
+</div>
+<script>
+    const form = document.querySelector("form");
+    const password = document.getElementById("password");
+    const confirmPassword = document.getElementById("confirmPassword");
+    const errorText = document.getElementById("errorText");
+
+    form.addEventListener("submit", function (e) {
+        if (password.value !== confirmPassword.value) {
+            e.preventDefault(); // Stop form submission
+            errorText.innerText = "Password and Confirm Password must be the same!";
+        } else {
+            errorText.innerText = "";
+        }
+    });
+</script>
+

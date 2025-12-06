@@ -2,20 +2,23 @@
 
 @{
     ViewData["Title"] = "Student Profile";
+    var role = Context.Session.GetString("role");
+    var isNormalUser = role == "user";
 }
 
 <style>
     body {
         background: #f9fafb;
         font-family: 'Poppins', sans-serif;
+
     }
 
     .page-wrapper {
-        min-height: 100vh;
+        
         display: flex;
         justify-content: center;
         align-items: center;
-        padding: 40px;
+        
     }
 
     .profile-card {
@@ -29,7 +32,7 @@
         overflow: hidden;
     }
 
-    /* ✅ SIMPLE NAME CARD HEADER */
+  
     .name-card {
         background: #4f46e5;
         color: white;
@@ -160,10 +163,12 @@
 
             <!-- ✅ ACTIONS -->
             <div class="profile-actions">
-                <a asp-action="Edit" asp-route-id="@Model.StudentId" class="btn btn-edit">
-                    Edit Student
-                </a>
-
+                @if (role == "admin")
+                {
+                    <a asp-action="Edit" asp-route-id="@Model.StudentId" class="btn btn-edit">
+                        Edit Student
+                    </a>
+                }
                 <a asp-action="List" class="btn btn-outline-secondary btn-back">
                     Back to List
                 </a>

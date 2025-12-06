@@ -1,7 +1,6 @@
 ﻿@{
     var profileName = Context.Session.GetString("username");
-    var role = Context.Session.GetString("role");
-    var isNormalUser = role == "user";
+
 }
 
 <!DOCTYPE html>
@@ -43,16 +42,21 @@
             font-size: 30px;
             font-weight: 800;
             letter-spacing: 0.5px;
-            color: #0f172a;
+            color: #0f172a; /* Deep slate */
             margin: 0;
             display: flex;
             align-items: center;
         }
 
             .app-name span {
-                color: #2563eb;
+                color: #2563eb; /* Premium blue */
                 margin-left: 4px;
             }
+
+
+        .user-dropdown {
+            font-weight: 600;
+        }
 
         .app-footer {
             background: rgba(255,255,255,0.9);
@@ -66,56 +70,6 @@
             width: 100%;
             bottom: 0;
         }
-
-        /* ✅ Professional Profile UI */
-        .profile-box {
-            background: white;
-            padding: 6px 12px;
-            border-radius: 30px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-            gap: 10px;
-            display: flex;
-            align-items: center;
-        }
-
-        .profile-avatar {
-            width: 36px;
-            height: 36px;
-            background: linear-gradient(135deg, #2563eb, #38bdf8);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .profile-name {
-            font-weight: 600;
-            font-size: 14px;
-            color: #111827;
-            max-width: 180px;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-
-        /* ✅ Centered ADMIN badge */
-        .role-chip {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 8px 16px;
-            border-radius: 999px;
-            border: 1px solid #fecaca;        
-            font-size: 18px;
-            font-weight: 600;
-            color: #b91c1c;
-            gap: 6px;
-            margin-left:380px;
-        }
-
-           
-
-        
     </style>
 </head>
 
@@ -125,44 +79,28 @@
     <nav class="navbar navbar-expand-lg fixed-top app-navbar px-4">
         <div class="container-fluid">
 
-            <!-- ✅ Application Name (Left) -->
+            <!-- ✅ Top Left: Application Name -->
             <h1 class="app-name">
                 Student<span>Hub</span>
             </h1>
 
-            <!-- ✅ Centered Admin Badge (only for admin) -->
-            @if (role == "admin")
-            {
-                <div class="role-chip bg-danger-subtle">
-                    <span>🛡️ Admin Panel</span>
-                </div>
-            }
-            else
-            {
-                <div class="role-chip bg-success-subtle text-success">
-                    <span>🧑🏻‍💼 User Panel</span>
-                </div>
-            }
 
-            <!-- ✅ Professional Profile Box (Right) -->
-            <div class="profile-box ms-auto">
+            <!-- ✅ Top Right: Admin Button + Logout -->
+            <div class="d-flex align-items-center gap-3 ms-auto">
 
-                <!-- ✅ Avatar SVG -->
-                <div class="profile-avatar">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="white" viewBox="0 0 16 16">
-                        <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
-                    </svg>
-                </div>
-
-                <!-- ✅ Profile Name -->
-                <span class="profile-name">@profileName</span>
-
-                <!-- ✅ Logout -->
-                <a class="btn btn-outline-danger btn-sm fw-semibold"
+                <a class="btn btn-outline-primary fw-semibold"
                    asp-controller="Login"
                    asp-action="LoginUser">
-                    Logout
+                    🧑🏻‍💼 User
                 </a>
+
+                <!-- ✅ Admin Button -->
+                <a class="btn btn-outline-primary fw-semibold"
+                   asp-controller="Admin"
+                   asp-action="AdminLogin">
+                    🛡️ Admin
+                </a>             
+
             </div>
 
         </div>
@@ -175,10 +113,11 @@
         </main>
     </div>
 
-    <!-- ✅ FOOTER -->
+    <!-- ✅ FOOTER START -->
     <footer class="app-footer">
         © @DateTime.Now.Year - Student Management System | Built with ASP.NET Core MVC 🚀
     </footer>
+    <!-- ✅ FOOTER END -->
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

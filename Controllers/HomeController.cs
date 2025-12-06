@@ -57,9 +57,8 @@ namespace EntityAspMvcFirst.Controllers
                     TempData["insert"] = "Student created successfully";
                     return RedirectToAction("list");
                 }
-                catch (Exception ex)
-                {
-                    var msg = ex.Message;
+                catch (Exception )
+                {                   
                     TempData["createerror"] = "Error: check your details once again and privide unique id and mail ";
                     return View();
                 }
@@ -73,8 +72,7 @@ namespace EntityAspMvcFirst.Controllers
             
                 Student? student = context.Students.FirstOrDefault(e => e.StudentId == id);
 
-                return View(student);                                          
-            
+                return View(student);                                                      
         }
 
         [HttpPost]
@@ -86,8 +84,7 @@ namespace EntityAspMvcFirst.Controllers
                     context.Students.Update(stu);
                     context.SaveChanges();
                     TempData["insert"] = "Student successfully Updated.....";
-                    return RedirectToAction("list");
-                
+                    return RedirectToAction("list");           
             }
             return View();
         }
@@ -102,18 +99,10 @@ namespace EntityAspMvcFirst.Controllers
 
         // POST handler changed: accept id, load entity, delete.
         [HttpPost]
-        public IActionResult Delete(int id)
-        {
-            var student = context.Students.Find(id);
-            if (student == null)
-            {
-                TempData["message"] = id + " student not found";
-                return RedirectToAction("list");
-            }
-
-            context.Students.Remove(student);
+        public IActionResult Delete(Student stu)
+        {        
+            context.Students.Remove(stu);
             context.SaveChanges();
-
             TempData["insert"] = "Student successfully Deleted.....";
             return RedirectToAction("list");
         }

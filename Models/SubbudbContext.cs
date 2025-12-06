@@ -16,6 +16,9 @@ public partial class SubbudbContext : DbContext
     }
 
     public virtual DbSet<Student> Students { get; set; }
+    public virtual DbSet<LoginUser> LoginUsers { get; set; }
+    public virtual DbSet<Admins> Admins { get; set; } // renamed from Adminss
+
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     { }
@@ -38,6 +41,8 @@ public partial class SubbudbContext : DbContext
             entity.Property(e => e.FullName).HasMaxLength(100);
             entity.Property(e => e.Gender).HasMaxLength(10);
         });
+
+        modelBuilder.Entity<Admins>(e => e.ToTable("Admins"));
 
         OnModelCreatingPartial(modelBuilder);
     }

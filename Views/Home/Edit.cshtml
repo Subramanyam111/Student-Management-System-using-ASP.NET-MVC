@@ -2,6 +2,7 @@
 
 @{
     ViewData["Title"] = "Edit Student";
+    
 }
 
 <style>
@@ -11,7 +12,7 @@
     }
 
     .page-wrapper {
-        padding: 40px;
+        padding: 10px;
         min-height: 100vh;
         display: flex;
         justify-content: center;
@@ -20,7 +21,7 @@
 
     .form-card {
         background: #ffffff;
-        padding: 35px 40px;
+        padding: 20px 40px;
         border-radius: 16px;
         width: 100%;
         max-width: 800px;
@@ -32,15 +33,15 @@
         font-size: 26px;
         font-weight: 700;
         color: #111827;
-        margin-bottom: 6px;
+        margin-bottom: 3px;
         text-align: center;
     }
 
     .form-subtitle {
         text-align: center;
-        font-size: 14px;
+        font-size: 13px;
         color: #6b7280;
-        margin-bottom: 30px;
+        margin-bottom: 5px;
     }
 
     label {
@@ -94,7 +95,7 @@
         <p class="form-subtitle">
             Update student details
         </p>
-
+        <hr style="color:#4338ca" />
         <form asp-action="Edit">
 
             <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
