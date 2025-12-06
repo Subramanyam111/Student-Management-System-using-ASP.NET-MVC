@@ -116,9 +116,9 @@ The application exposes the following MVC routes:
 ## 📬 Contact & Connect
 If you found this project interesting or have any feedback, feel free to reach out!
 
-- **LinkedIn**: [Your Name](https://www.linkedin.com/in/yourprofile)
-- **Email**: your.email@example.com
-- **GitHub**: [YourProfile](https://github.com/yourusername)
+- **LinkedIn**: [Subramanyam Sirisala](https://www.linkedin.com/in/subramanyam-sirisala-3860b4219/)
+- **Email**: sirisalasubramanyam@gmail.com
+- **GitHub**: [Subramanyam Sirisala](https://github.com/Subramanyam111/Student-Management-System-using-ASP.NET-MVC.git)
 
 ---
 *© 2025 Student Management System. Built for educational purposes.*
