@@ -126,5 +126,24 @@ If you found this project interesting or have any feedback, feel free to reach o
 
 
 <img width="1920" height="1014" alt="Screenshot 2025-12-12 095425" src="https://github.com/user-attachments/assets/5ced2c9b-48c2-44cd-a426-6a42a607439f" />
+<img width="1920" height="1014" alt="Screenshot 2025-12-12 095442" src="https://github.com/user-attachments/assets/245062c0-f18b-47e3-b2ec-ded432d5021c" />
+<img width="1920" height="1014" alt="Screenshot 2025-12-12 095456" src="https://github.com/user-attachments/assets/55491a4a-c5c0-4b43-8d02-bc6c8822812b" />
+<img width="1920" height="1014" alt="Screenshot 2025-12-12 095524" src="https://github.com/user-attachments/assets/08987445-ef24-4a37-9af1-19caea090295" />
+<img width="1920" height="1014" alt="Screenshot 2025-12-12 095541" src="https://github.com/user-attachments/assets/6d4ab90b-a979-44ef-bbc1-0500a1d79396" />
+<img width="1920" height="1014" alt="Screenshot 2025-12-12 095607" src="https://github.com/user-attachments/assets/a8a25e74-d689-4edb-89ab-d95df2e11838" />
+<img width="1920" height="1014" alt="Screenshot 2025-12-12 095623" src="https://github.com/user-attachments/assets/13521bbe-fc5d-44fb-86ba-f3192796a70d" />
+<img width="1920" height="1014" alt="Screenshot 2025-12-12 095642" src="https://github.com/user-attachments/assets/49a79130-b62f-4304-8249-8eb925fca10c" />
+<img width="1920" height="1014" alt="Screenshot 2025-12-12 095658" src="https://github.com/user-attachments/assets/7d47ad08-2e08-48a2-93c5-f852634fef71" />
+<img width="1920" height="1014" alt="Screenshot 2025-12-12 095714" src="https://github.com/user-attachments/assets/f859d41f-3d97-4404-8ef8-44978e42a69d" />
+
+
+
+
+
+
+
+
+
+
 
 
