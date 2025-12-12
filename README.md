@@ -122,3 +122,9 @@ If you found this project interesting or have any feedback, feel free to reach o
 
 ---
 *© 2025 Student Management System. Built for educational purposes.*
+
+
+
+<img width="1920" height="1014" alt="Screenshot 2025-12-12 095425" src="https://github.com/user-attachments/assets/5ced2c9b-48c2-44cd-a426-6a42a607439f" />
+
+
